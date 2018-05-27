@@ -51,7 +51,7 @@
 </template>
 <script>
 import moment from 'moment'
-moment.locale('tr-TR');
+// moment.locale('tr-TR');
 
 function componentToHex(c) {
   var hex = c.toString(16);
