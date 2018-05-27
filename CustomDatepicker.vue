@@ -152,7 +152,15 @@ export default {
       selectedDateStart: this.dateRangeStart ? this.getInitialDateRange(this.dateRangeStart) : null,
       selectedDateEnd:   this.dateRangeEnd ? this.getInitialDateRange(this.dateRangeEnd) : null,
       today:             moment(),
-      weekdayLabels:     ['m', 't', 'w', 't', 'f', 's', 's']
+      weekdayLabels:     [
+          moment().isoWeekday(0).format('dd'),
+          moment().isoWeekday(1).format('dd'),
+          moment().isoWeekday(2).format('dd'),
+          moment().isoWeekday(3).format('dd'),
+          moment().isoWeekday(4).format('dd'),
+          moment().isoWeekday(5).format('dd'),
+          moment().isoWeekday(6).format('dd'),
+      ]
     }
   },
   computed: {
