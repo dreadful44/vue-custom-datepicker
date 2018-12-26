@@ -51,7 +51,6 @@
 </template>
 <script>
 import moment from 'moment'
-// moment.locale('tr-TR');
 
 function componentToHex(c) {
   var hex = c.toString(16);
@@ -143,7 +142,21 @@ export default {
     },
     todayTextColor: {
       type: String
-    }
+    },
+      weekdayLabels: {
+          type: Array,
+          default() {
+              return [
+                  moment().isoWeekday(1).format('dd'),
+                  moment().isoWeekday(2).format('dd'),
+                  moment().isoWeekday(3).format('dd'),
+                  moment().isoWeekday(4).format('dd'),
+                  moment().isoWeekday(5).format('dd'),
+                  moment().isoWeekday(6).format('dd'),
+                  moment().isoWeekday(0).format('dd')
+              ]
+          }
+      }
   },
   data() {
     return {
@@ -151,16 +164,7 @@ export default {
       selectedDate:      this.getInitialDate(this.date),
       selectedDateStart: this.dateRangeStart ? this.getInitialDateRange(this.dateRangeStart) : null,
       selectedDateEnd:   this.dateRangeEnd ? this.getInitialDateRange(this.dateRangeEnd) : null,
-      today:             moment(),
-      weekdayLabels:     [
-          moment().isoWeekday(0).format('dd'),
-          moment().isoWeekday(1).format('dd'),
-          moment().isoWeekday(2).format('dd'),
-          moment().isoWeekday(3).format('dd'),
-          moment().isoWeekday(4).format('dd'),
-          moment().isoWeekday(5).format('dd'),
-          moment().isoWeekday(6).format('dd'),
-      ]
+        today: moment()
     }
   },
   computed: {
